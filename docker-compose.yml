@@ -37,6 +37,14 @@ services:
     ports:
       - "5432:5432"
 
+  db-migrator:
+    build: .
+    command: [ "./wait-for", "--timeout=3000", "database:5432", "--",
+               "bin/rails", "db:migrate" ]
+    env_file:
+      - .env/development/database
+      - .env/development/web
+
   pgadmin:
     image: dpage/pgadmin4
     env_file:
