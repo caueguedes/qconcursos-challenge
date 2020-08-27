@@ -1,0 +1,3 @@
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=qconcursos
+POSTGRES_DB=qconcursos_development
