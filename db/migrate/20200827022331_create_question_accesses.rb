@@ -1,7 +1,7 @@
 class CreateQuestionAccesses < ActiveRecord::Migration[6.0]
   def change
     create_table :question_accesses do |t|
-      t.datetime :date
+      t.timestamp :date
       t.integer :times_accessed
 
       t.timestamps
