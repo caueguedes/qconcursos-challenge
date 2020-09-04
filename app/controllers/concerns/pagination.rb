@@ -2,7 +2,7 @@ module Pagination
   extend ActiveSupport::Concern
 
   def set_paginate_params
-    @page = params[:current_page] || 1
+    @page = params[:page] || 1
     @per_page = params[:per_page] || 10
   end
 

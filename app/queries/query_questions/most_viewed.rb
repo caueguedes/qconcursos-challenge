@@ -1,6 +1,7 @@
 module QueryQuestions
   class MostViewed
-    def initialize
+    def initialize(relation = Question.all)
+      @relation = relation
     end
 
     def by_week
@@ -20,7 +21,7 @@ module QueryQuestions
 
     private
       def most_viewed
-        Question.joins("LEFT JOIN (#{ summed_accesses }) summed_accesses on summed_accesses.question_id = questions.id" ).
+        @relation.joins("LEFT JOIN (#{ summed_accesses }) summed_accesses on summed_accesses.question_id = questions.id" ).
             select('questions.* ,(coalesce(sum_times_accessed, 0) + daily_access) as total_accesses').
             order(total_accesses: :desc)
       end

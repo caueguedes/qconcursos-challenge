@@ -1,13 +1,12 @@
 class QuestionsController < ApplicationController
-  before_action :set_paginate_params, only: [:list, :index]
+  include Pagination
 
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :set_period
+  before_action :set_paginate_params, only: :index
+  before_action :set_hot_topics,       only: :index
+  before_action :set_questions,       only: :index
+  before_action :set_question,        only: :show
 
   def index
-  end
-
-  def list
   end
 
   def show
@@ -19,11 +18,16 @@ class QuestionsController < ApplicationController
     end
 
     def set_questions
-      binding.pry
-      @question = Question.filter(params.slice(:discipline))
+      @questions = Question.filter(params.slice(:discipline))
+      set_period if %w(week month year).include? params[:period]
+      @questions = paginate(@questions)
     end
 
     def set_period
-      @period
+      @questions = QueryQuestions::MostViewed.new(@questions).public_send("by_#{params[:period]}")
+    end
+
+    def set_hot_topics
+      @hot_topics = QueryQuestions::HotTopics.call
     end
 end
