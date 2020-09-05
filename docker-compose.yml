@@ -11,6 +11,7 @@ services:
     env_file:
       - .env/development/database
       - .env/development/web
+      - .env/development/redis
     environment:
       - WEBPACKER_DEV_SERVER_HOST=webpack_dev_server
     tty: true
@@ -27,6 +28,7 @@ services:
     env_file:
       - .env/development/web
       - .env/development/database
+      - .env/development/redis
     environment:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
 
@@ -55,6 +57,11 @@ services:
       - pgadmin:/var/lib/pgadmin
     links:
       - "database:pgsql"
+
+  redis:
+    image: redis
+    env_file:
+      - .env/development/redis
 
 volumes:
   gem_cache:
