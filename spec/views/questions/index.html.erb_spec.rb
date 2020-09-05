@@ -25,7 +25,7 @@ RSpec.describe "questions/index", type: :view do
 
   context 'render filter links'
   it 'render a list of filter links' do
-    @hot_topics = QueryQuestions::HotTopics.call
+    @hot_topics = QueryQuestions::HotTopics.call.collect(&:discipline)
 
     render
     expect(rendered).to include(questions_path(discipline: Question.first.discipline))

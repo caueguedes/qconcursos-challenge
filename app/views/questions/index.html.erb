@@ -12,7 +12,6 @@
   <%= link_to "year", set_current_params(period: 'year') %>
 </div>
 
-<%= paginate @questions, window: 1 %>
 
 <table>
   <thead>
@@ -30,12 +29,11 @@
         <td><%= question.statement %></td>
         <td><%= question.text %></td>
         <td><%= question.discipline %></td>
-        <td><%= link_to 'Show', question %></td>
+        <td><%= link_to 'Show', id: question.id %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= paginate @questions, window: 1 %>
 
 <br>
