@@ -90,6 +90,9 @@ com um registro do dia em questão as queries podem ser filtradas e agrupadas de
 - O projeto possui serializados já definidos, então a utilização em uma aplicação frontend usando javascript já é possível.
 Para aumentar o desempenho do sistema a divisão do sistema em aplicações frontend/backend é uma opção o que faz com que a renderização da aplicação não seja mais de responsabilidade do servidor backend.
 
+-  Como e quando utilizar cache assim como as escolhas do sistema é uma questão que dados sobre a aplicação,
+estes podem ser obtidos por ferramentas como nagios, cactis entre outras.
+Tendo noção do funcionamento do sistema, como exemplo sabendo quais as páginas mais acessadas podem ser utilizadas diferentes abordagens, como definição de cache utilizando cluster(shards) ou a  replicação primary/replicas
 
 ### Senhas
 
