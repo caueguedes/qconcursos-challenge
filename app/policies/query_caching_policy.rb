@@ -13,7 +13,7 @@ class QueryCachingPolicy
 
   private
     def allowed_params?
-      @params[:page] <= MAXIMUM_PAGES
+      @params[:page].to_i <= MAXIMUM_PAGES
     end
 
     def page_number_allowed?
