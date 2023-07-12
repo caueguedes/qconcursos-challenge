@@ -59,6 +59,8 @@ The Policy Pattern was used to encapsulate the decision of when to cache the que
 
 
 ### Caching
+(rails has a caching system, it was handcrafted here to show another approach to caching, allowing for fine grain tuning)
+
 Due to the large number of accesses described in the challenge, it was decided to use a cache bank to save the query response, reducing the response time and the number of requests made to the bank.
 
 
@@ -82,13 +84,12 @@ Queries can be filtered and grouped in a way more efficient.
 - The project has already defined serializers, so the use with a frontend application using javascript is already possible.
 To increase system performance, splitting the system into frontend/backend applications is an option, which makes application rendering no longer the responsibility of the backend server increasing disponibility.
 
--  Como e quando utilizar cache assim como as escolhas do sistema é uma questão que dados sobre a aplicação,
-estes podem ser obtidos por ferramentas como nagios, cactis entre outras.
-Tendo noção do funcionamento do sistema, como exemplo sabendo quais as páginas mais acessadas podem ser utilizadas diferentes abordagens, como definição de cache utilizando cluster(shards) ou a  replicação primary/replicas
+-  How and when to use cache as well as system choices is a question of data about the application, these can be obtained by tools like nagios, cactis among others.
+ 
+- Having a sense of how the system works, as an example, knowing which pages are most accessed allow us to use different approaches, such as defining a cache using cluster(shards) or primary/replica replication
+### Passwords
 
-### Senhas
+Database and pgadmin passwords are defined in .env/development
 
-
-As senhas dos bancos e pgadmin estão definidos em .env/development 
 
 
