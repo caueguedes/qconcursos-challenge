@@ -7,18 +7,21 @@ Tools | Versions
 --------- | ------
 ruby        | 2.7.1 alpine
 rails       | 6.0
+node        | 12.22.6
 
 
 This project also includes a Postgres relational database and a Redis database used for caching.
 
 
 ## Running Locally
+(The database is automatically created/migrated but you will have to populate 
+the database in order to not raise any errors, follow the steps to database population)
 ### Build development instructions
 
 - docker-compose up -d
 
 
-### Database creation
+### Database population
 
 The project includes a container responsible for the migration of the development database.
 
