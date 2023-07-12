@@ -43,6 +43,8 @@ services:
     build: .
     command: [ "./wait-for", "--timeout=3000", "database:5432", "--",
                "bin/rails", "db:migrate" ]
+    volumes:
+      - .:/usr/src/app
     env_file:
       - .env/development/database
       - .env/development/web
