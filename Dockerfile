@@ -8,7 +8,8 @@ RUN apk update && apk add --no-cache bash \
     yarn \
     postgresql-dev \
     netcat-openbsd \
-    tzdata
+    tzdata \
+    shared-mime-info
 
 
 COPY Gemfile* /usr/src/app/
