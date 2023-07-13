@@ -93,3 +93,10 @@ Database and pgadmin passwords are defined in .env/development
 
 
 
+## Project Running
+
+The project is a site for displaying pre-registered questions, the menu on the left has filters for all disciplines 
+registered in the question bank. 
+There is also available a filter by period returning the questions by the last weeks, month or year
+
+![img.png](img.png)
